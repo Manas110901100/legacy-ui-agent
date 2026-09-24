@@ -1,0 +1,5 @@
+bankapp.account_details: reliability 0.76 over 19 run(s), 14 clean
+    1 x internal_error at s2
+    1 x internal_error at s4
+    1 x internal_error at s1
+bankapp.create_account: no runs yet

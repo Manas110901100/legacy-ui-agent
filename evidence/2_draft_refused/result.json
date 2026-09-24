@@ -1,0 +1,22 @@
+{
+ "run_id": "20260924_171427_account_details_replay",
+ "capability": "bankapp.account_details",
+ "version": 1,
+ "mode": "replay",
+ "status": "refused",
+ "outcome": null,
+ "outputs": {},
+ "answer": null,
+ "failure": {
+  "code": "not_approved",
+  "message": "draft capability: review it and run --approve, or pass --allow-draft",
+  "step": null,
+  "expected": null,
+  "observed": null,
+  "screenshot": null
+ },
+ "recoveries": [],
+ "interventions": [],
+ "llm_calls": 0,
+ "duration_s": 0.0
+}

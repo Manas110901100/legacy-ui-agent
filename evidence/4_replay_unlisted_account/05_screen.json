@@ -1,0 +1,482 @@
+{
+ "screen": "BankAPP - Core Banking System",
+ "menu": [],
+ "buttons": [
+  {
+   "id": "btn_new",
+   "text": "New"
+  },
+  {
+   "id": "btn_edit",
+   "text": "Edit"
+  },
+  {
+   "id": "btn_details",
+   "text": "Details"
+  },
+  {
+   "id": "btn_deposit",
+   "text": "Deposit"
+  },
+  {
+   "id": "btn_withdraw",
+   "text": "Withdraw"
+  },
+  {
+   "id": "btn_transfer",
+   "text": "Transfer"
+  },
+  {
+   "id": "btn_close_acct",
+   "text": "Close Acct"
+  },
+  {
+   "id": "btn_find",
+   "text": "Find"
+  },
+  {
+   "id": "btn_show_all",
+   "text": "Show All"
+  }
+ ],
+ "inputs": [
+  {
+   "id": "input_1",
+   "kind": "input",
+   "label": "Account No / Name",
+   "role": "search",
+   "value": "<ACCT_1>",
+   "submit": "btn_find"
+  }
+ ],
+ "table": {
+  "columns": [
+   "Account No",
+   "Customer Name",
+   "Type",
+   "Balance",
+   "Status",
+   "Email",
+   "Phone"
+  ],
+  "sortable_headers": [
+   "col_account_no",
+   "col_customer_name",
+   "col_type",
+   "col_balance",
+   "col_status",
+   "col_email",
+   "col_phone"
+  ],
+  "visible_rows": 32,
+  "selected_row": "row_1",
+  "scroll": {
+   "visible_fraction": 0.61,
+   "at_top": true,
+   "at_bottom": false
+  },
+  "rows": [
+   {
+    "id": "row_1",
+    "values": [
+     "<ACCT_3>",
+     "<NAME_1>",
+     "Savings",
+     "<AMOUNT_8>",
+     "ACTIVE",
+     "<EMAIL_2>",
+     "<PHONE_2>"
+    ]
+   },
+   {
+    "id": "row_2",
+    "values": [
+     "<ACCT_4>",
+     "<NAME_2>",
+     "Checking",
+     "<AMOUNT_9>",
+     "ACTIVE",
+     "<EMAIL_3>",
+     "<PHONE_3>"
+    ]
+   },
+   {
+    "id": "row_3",
+    "values": [
+     "<ACCT_5>",
+     "<NAME_3>",
+     "Checking",
+     "<AMOUNT_10>",
+     "ACTIVE",
+     "<EMAIL_4>",
+     "<PHONE_4>"
+    ]
+   },
+   {
+    "id": "row_4",
+    "values": [
+     "<ACCT_6>",
+     "<NAME_4>",
+     "Savings",
+     "<AMOUNT_11>",
+     "ACTIVE",
+     "<EMAIL_5>",
+     "<PHONE_5>"
+    ]
+   },
+   {
+    "id": "row_5",
+    "values": [
+     "<ACCT_2>",
+     "<TEXT_1>",
+     "Savings",
+     "<AMOUNT_2>",
+     "ACTIVE",
+     "<EMAIL_1>",
+     "<PHONE_1>"
+    ]
+   },
+   {
+    "id": "row_6",
+    "values": [
+     "<ACCT_7>",
+     "<NAME_5>",
+     "Checking",
+     "<AMOUNT_12>",
+     "ACTIVE",
+     "<EMAIL_6>",
+     "<PHONE_6>"
+    ]
+   },
+   {
+    "id": "row_7",
+    "values": [
+     "<ACCT_8>",
+     "<NAME_6>",
+     "Savings",
+     "<AMOUNT_13>",
+     "ACTIVE",
+     "<EMAIL_7>",
+     "<PHONE_7>"
+    ]
+   },
+   {
+    "id": "row_8",
+    "values": [
+     "<ACCT_9>",
+     "<NAME_7>",
+     "Savings",
+     "<AMOUNT_14>",
+     "ACTIVE",
+     "<EMAIL_8>",
+     "<PHONE_8>"
+    ]
+   },
+   {
+    "id": "row_9",
+    "values": [
+     "<ACCT_10>",
+     "<NAME_8>",
+     "Savings",
+     "<AMOUNT_15>",
+     "ACTIVE",
+     "<EMAIL_9>",
+     "<PHONE_9>"
+    ]
+   },
+   {
+    "id": "row_10",
+    "values": [
+     "<ACCT_11>",
+     "<NAME_9>",
+     "Savings",
+     "<AMOUNT_16>",
+     "ACTIVE",
+     "<EMAIL_10>",
+     "<PHONE_10>"
+    ]
+   },
+   {
+    "id": "row_11",
+    "values": [
+     "<ACCT_12>",
+     "<NAME_10>",
+     "Savings",
+     "<AMOUNT_17>",
+     "ACTIVE",
+     "<EMAIL_11>",
+     "<PHONE_11>"
+    ]
+   },
+   {
+    "id": "row_12",
+    "values": [
+     "<ACCT_13>",
+     "<NAME_11>",
+     "Checking",
+     "<AMOUNT_18>",
+     "ACTIVE",
+     "<EMAIL_12>",
+     "<PHONE_12>"
+    ]
+   },
+   {
+    "id": "row_13",
+    "values": [
+     "<ACCT_14>",
+     "<NAME_12>",
+     "Savings",
+     "<AMOUNT_19>",
+     "ACTIVE",
+     "<EMAIL_13>",
+     "<PHONE_13>"
+    ]
+   },
+   {
+    "id": "row_14",
+    "values": [
+     "<ACCT_15>",
+     "<NAME_13>",
+     "Savings",
+     "<AMOUNT_20>",
+     "ACTIVE",
+     "<EMAIL_14>",
+     "<PHONE_14>"
+    ]
+   },
+   {
+    "id": "row_15",
+    "values": [
+     "<ACCT_16>",
+     "<NAME_14>",
+     "Savings",
+     "<AMOUNT_21>",
+     "ACTIVE",
+     "<EMAIL_15>",
+     "<PHONE_15>"
+    ]
+   },
+   {
+    "id": "row_16",
+    "values": [
+     "<ACCT_17>",
+     "<NAME_15>",
+     "Checking",
+     "<AMOUNT_22>",
+     "ACTIVE",
+     "<EMAIL_16>",
+     "<PHONE_16>"
+    ]
+   },
+   {
+    "id": "row_17",
+    "values": [
+     "<ACCT_18>",
+     "<NAME_16>",
+     "Savings",
+     "<AMOUNT_23>",
+     "ACTIVE",
+     "<EMAIL_17>",
+     "<PHONE_17>"
+    ]
+   },
+   {
+    "id": "row_18",
+    "values": [
+     "<ACCT_19>",
+     "<NAME_17>",
+     "Checking",
+     "<AMOUNT_24>",
+     "ACTIVE",
+     "<EMAIL_18>",
+     "<PHONE_18>"
+    ]
+   },
+   {
+    "id": "row_19",
+    "values": [
+     "<ACCT_20>",
+     "<NAME_18>",
+     "Savings",
+     "<AMOUNT_25>",
+     "ACTIVE",
+     "<EMAIL_19>",
+     "<PHONE_19>"
+    ]
+   },
+   {
+    "id": "row_20",
+    "values": [
+     "<ACCT_21>",
+     "<NAME_19>",
+     "Savings",
+     "<AMOUNT_26>",
+     "ACTIVE",
+     "<EMAIL_20>",
+     "<PHONE_20>"
+    ]
+   },
+   {
+    "id": "row_21",
+    "values": [
+     "<ACCT_22>",
+     "<NAME_20>",
+     "Checking",
+     "<AMOUNT_27>",
+     "ACTIVE",
+     "<EMAIL_21>",
+     "<PHONE_21>"
+    ]
+   },
+   {
+    "id": "row_22",
+    "values": [
+     "<ACCT_23>",
+     "<NAME_21>",
+     "Savings",
+     "<AMOUNT_28>",
+     "ACTIVE",
+     "<EMAIL_22>",
+     "<PHONE_22>"
+    ]
+   },
+   {
+    "id": "row_23",
+    "values": [
+     "<ACCT_24>",
+     "<NAME_22>",
+     "Checking",
+     "<AMOUNT_29>",
+     "ACTIVE",
+     "<EMAIL_23>",
+     "<PHONE_23>"
+    ]
+   },
+   {
+    "id": "row_24",
+    "values": [
+     "<ACCT_25>",
+     "<NAME_23>",
+     "Savings",
+     "<AMOUNT_30>",
+     "ACTIVE",
+     "<EMAIL_24>",
+     "<PHONE_24>"
+    ]
+   },
+   {
+    "id": "row_25",
+    "values": [
+     "<ACCT_26>",
+     "<NAME_24>",
+     "Checking",
+     "<AMOUNT_31>",
+     "ACTIVE",
+     "<EMAIL_25>",
+     "<PHONE_25>"
+    ]
+   },
+   {
+    "id": "row_26",
+    "values": [
+     "<ACCT_27>",
+     "<NAME_25>",
+     "Savings",
+     "<AMOUNT_32>",
+     "ACTIVE",
+     "<EMAIL_26>",
+     "<PHONE_26>"
+    ]
+   },
+   {
+    "id": "row_27",
+    "values": [
+     "<ACCT_28>",
+     "<NAME_26>",
+     "Checking",
+     "<AMOUNT_33>",
+     "ACTIVE",
+     "<EMAIL_27>",
+     "<PHONE_27>"
+    ]
+   },
+   {
+    "id": "row_28",
+    "values": [
+     "<ACCT_29>",
+     "<NAME_27>",
+     "Savings",
+     "<AMOUNT_34>",
+     "ACTIVE",
+     "<EMAIL_28>",
+     "<PHONE_28>"
+    ]
+   },
+   {
+    "id": "row_29",
+    "values": [
+     "<ACCT_30>",
+     "<NAME_28>",
+     "Checking",
+     "<AMOUNT_35>",
+     "ACTIVE",
+     "<EMAIL_29>",
+     "<PHONE_29>"
+    ]
+   },
+   {
+    "id": "row_30",
+    "values": [
+     "<ACCT_31>",
+     "<NAME_29>",
+     "Checking",
+     "<AMOUNT_36>",
+     "ACTIVE",
+     "<EMAIL_30>",
+     "<PHONE_30>"
+    ]
+   },
+   {
+    "id": "row_31",
+    "values": [
+     "<ACCT_32>",
+     "<NAME_30>",
+     "Checking",
+     "<AMOUNT_37>",
+     "ACTIVE",
+     "<EMAIL_31>",
+     "<PHONE_31>"
+    ]
+   },
+   {
+    "id": "row_32",
+    "values": [
+     "<ACCT_33>",
+     "<NAME_31>",
+     "Savings",
+     "<AMOUNT_38>",
+     "ACTIVE",
+     "<EMAIL_32>",
+     "<PHONE_32>"
+    ]
+   }
+  ]
+ },
+ "other_text": [
+  {
+   "text": "53 account(s)",
+   "content": "dynamic",
+   "kind": "status"
+  },
+  {
+   "text": "User:",
+   "content": "static",
+   "kind": "status"
+  },
+  {
+   "text": "admin (admin)",
+   "content": "dynamic",
+   "kind": "status"
+  }
+ ]
+}

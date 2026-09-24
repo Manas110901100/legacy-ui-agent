@@ -1,0 +1,4 @@
+# Runtime uses the standard library only (tkinter, sqlite3).
+# Development tools:
+pytest>=8
+ruff>=0.5

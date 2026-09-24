@@ -1,0 +1,18 @@
+{
+ "id": "20260924_172841_account_details-1",
+ "capability": "bankapp.account_details",
+ "goal": "show the details of <ACCT_1>",
+ "step": "s2",
+ "reason": "you switched to Human",
+ "code": "operator_takeover",
+ "kind": "hard",
+ "window": "BankAPP - Core Banking System",
+ "screenshot": "02_screen.png",
+ "in_control": "agent",
+ "opened_at": "2026-09-24T17:28:47",
+ "human_actions": [
+  "double_click row 11"
+ ],
+ "decision": "not saved",
+ "closed_at": "2026-09-24T17:29:33"
+}

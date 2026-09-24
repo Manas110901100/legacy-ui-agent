@@ -1,0 +1,2 @@
+[17:14:27] invoke bankapp.account_details v1 [draft] with {"account": "<ACCT_1>"}
+[17:14:27] RESULT refused - not_approved: draft capability: review it and run --approve, or pass --allow-draft

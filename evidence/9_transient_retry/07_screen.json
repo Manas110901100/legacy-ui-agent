@@ -1,0 +1,36 @@
+{
+ "screen": "<TEXT_12> Error",
+ "menu": [],
+ "buttons": [],
+ "inputs": [
+  {
+   "id": "input_1",
+   "kind": "input",
+   "label": "",
+   "role": "field",
+   "value": "<TEXT_13>"
+  }
+ ],
+ "other_text": [
+  {
+   "text": "<TEXT_14> 3 <TEXT_15> (The <TEXT_16> did not",
+   "content": "dynamic",
+   "kind": "text"
+  },
+  {
+   "text": "<TEXT_8> in <TEXT_9>). Please <TEXT_10>",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "Error <TEXT_11>:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "<TEXT_17>77302<TEXT_18>",
+   "content": "dynamic",
+   "kind": "text"
+  }
+ ]
+}

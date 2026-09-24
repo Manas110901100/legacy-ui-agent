@@ -1,0 +1,216 @@
+{
+ "task": "what is the balance of <ACCT_1>",
+ "intent": "account_details",
+ "allowed": "click buttons: Find, Show All, Details, Close, OK; type into: Account No / Name; click / double-click table rows; click column headers and the scrollbar; keys: enter, tab, esc. Menus and every other button are refused.",
+ "parameters": {
+  "account": "<ACCT_1>"
+ },
+ "outputs_wanted": {
+  "account_no": "account_no: Account number",
+  "customer": "string: Customer name",
+  "account_type": "string: Savings or Checking",
+  "status": "string: ACTIVE or CLOSED",
+  "balance": "money: Current balance",
+  "transactions": "table: Rows of the transaction list (date, type, amount, balance after, ...)"
+ },
+ "history": [
+  {
+   "event": "double_click {'Account No': '{account}'}",
+   "result": "REFUSED: not allowed yet: first type {account} into the search field and click its search button; only then open the row (on other records the row is not visible without a search)"
+  },
+  {
+   "event": "type Account No / Name {account}",
+   "expect": "The account number <ACCT_1> is typed into the search field.",
+   "result": "screen now: 'BankAPP - Core Banking System'"
+  },
+  {
+   "event": "click Find",
+   "expect": "The table should update to show the search results for account <ACCT_1>.",
+   "result": "screen now: 'BankAPP - Core Banking System'"
+  },
+  {
+   "event": "double_click {'Account No': '{account}'}",
+   "expect": "The Account Details window should open showing details for account <ACCT_1>.",
+   "result": "screen now: 'Account Details - <ACCT_1>'"
+  }
+ ],
+ "map": {
+  "you_are_at": "Account Details - *",
+  "known_moves_here": [
+   "key esc -> BankAPP - Core Banking System"
+  ],
+  "known_windows": [
+   "BankAPP - Core Banking System (main, seen 38)   via key esc",
+   "|- Account Details - * (dialog, seen 22)   via click Details, double_click table_row",
+   "|- Account Details - * (dialog, seen 3)   via double_click table_row",
+   "`- New Account (dialog, seen 3)   via click New"
+  ]
+ },
+ "screen": {
+  "screen": "Account Details - <ACCT_1>",
+  "menu": [],
+  "buttons": [
+   {
+    "id": "btn_counter",
+    "text": "Counter"
+   },
+   {
+    "id": "btn_close",
+    "text": "Close"
+   }
+  ],
+  "inputs": [],
+  "table": {
+   "columns": [
+    "Date Time",
+    "Amount",
+    "Balance After",
+    "Descri",
+    "tion"
+   ],
+   "sortable_headers": [
+    "col_date_time",
+    "col_amount",
+    "col_balance_after",
+    "col_descri",
+    "col_tion"
+   ],
+   "visible_rows": 4,
+   "selected_row": null,
+   "rows": [
+    {
+     "id": "row_1",
+     "values": [
+      "<TEXT_2>",
+      "<AMOUNT_1>",
+      "<AMOUNT_2>",
+      "<TEXT_3>",
+      "deposit"
+     ]
+    },
+    {
+     "id": "row_2",
+     "values": [
+      "<TEXT_4>",
+      "<AMOUNT_3>",
+      "<AMOUNT_4>",
+      "<TEXT_3>",
+      "deposit"
+     ]
+    },
+    {
+     "id": "row_3",
+     "values": [
+      "<TEXT_5>",
+      "<AMOUNT_5>",
+      "<AMOUNT_6>",
+      "<TEXT_3>",
+      "deposit"
+     ]
+    },
+    {
+     "id": "row_4",
+     "values": [
+      "<TEXT_6>",
+      "<AMOUNT_7>",
+      "<AMOUNT_7>",
+      "<TEXT_7>",
+      "deposit"
+     ]
+    }
+   ]
+  },
+  "other_text": [
+   {
+    "text": "Account",
+    "content": "static",
+    "kind": "text"
+   },
+   {
+    "text": "Account No:",
+    "content": "static",
+    "kind": "text"
+   },
+   {
+    "text": "<ACCT_1>",
+    "content": "dynamic",
+    "kind": "text"
+   },
+   {
+    "text": "Customer:",
+    "content": "static",
+    "kind": "text"
+   },
+   {
+    "text": "<TEXT_1>",
+    "content": "static",
+    "kind": "text"
+   },
+   {
+    "text": "Type:",
+    "content": "static",
+    "kind": "text"
+   },
+   {
+    "text": "Savings",
+    "content": "static",
+    "kind": "text"
+   },
+   {
+    "text": "Status:",
+    "content": "static",
+    "kind": "text"
+   },
+   {
+    "text": "ACTIVE",
+    "content": "static",
+    "kind": "text"
+   },
+   {
+    "text": "Balance:",
+    "content": "static",
+    "kind": "text"
+   },
+   {
+    "text": "<AMOUNT_2>",
+    "content": "dynamic",
+    "kind": "text"
+   },
+   {
+    "text": "Opened:",
+    "content": "static",
+    "kind": "text"
+   },
+   {
+    "text": "2025-12-31",
+    "content": "dynamic",
+    "kind": "text"
+   },
+   {
+    "text": "Email:",
+    "content": "static",
+    "kind": "text"
+   },
+   {
+    "text": "<EMAIL_1>",
+    "content": "dynamic",
+    "kind": "text"
+   },
+   {
+    "text": "Phone:",
+    "content": "static",
+    "kind": "text"
+   },
+   {
+    "text": "<PHONE_1>",
+    "content": "dynamic",
+    "kind": "text"
+   },
+   {
+    "text": "Transactions (4)",
+    "content": "dynamic",
+    "kind": "text"
+   }
+  ]
+ }
+}

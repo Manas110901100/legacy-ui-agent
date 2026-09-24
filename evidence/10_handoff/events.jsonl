@@ -1,0 +1,8 @@
+{"t": "2026-09-24T17:28:44.060", "event": "observe", "window": "BankAPP - Core Banking System", "node": "n1", "step": null}
+{"t": "2026-09-24T17:28:44.984", "event": "action", "step": null, "action": "click", "target": {"kind": "button", "key": "Show All"}, "value": null, "window": "BankAPP - Core Banking System"}
+{"t": "2026-09-24T17:28:46.115", "event": "observe", "window": "BankAPP - Core Banking System", "node": "n1", "step": "s1"}
+{"t": "2026-09-24T17:28:47.574", "event": "action", "step": "s1", "action": "type", "target": {"kind": "input", "key": "Account No / Name"}, "value": "{account}", "window": "BankAPP - Core Banking System"}
+{"t": "2026-09-24T17:28:47.611", "event": "intervention", "id": "20260924_172841_account_details-1", "code": "operator_takeover", "reason": "you switched to Human", "step": "s2"}
+{"t": "2026-09-24T17:29:34.515", "event": "observe", "window": "Account Details - *", "node": "n3", "step": "s2"}
+{"t": "2026-09-24T17:29:35.311", "event": "observe", "window": "Account Details - *", "node": "n3", "step": "checkpoint"}
+{"t": "2026-09-24T17:29:35.349", "event": "result", "status": "success", "outcome": null, "failure": null}

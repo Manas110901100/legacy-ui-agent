@@ -1,0 +1,725 @@
+{
+ "root": "n1",
+ "nodes": {
+  "n1": {
+   "name": "BankAPP - Core Banking System",
+   "kind": "main",
+   "parent": null,
+   "seen": 137,
+   "first_seen": "2026-09-24T16:15:23",
+   "skeleton": {
+    "window_title": "BankAPP - Core Banking System",
+    "size": [
+     1366,
+     677
+    ],
+    "elements": [
+     {
+      "kind": "button",
+      "key": "New",
+      "box": [
+       6,
+       5,
+       86,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Edit",
+      "box": [
+       89,
+       5,
+       169,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Details",
+      "box": [
+       172,
+       5,
+       252,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Deposit",
+      "box": [
+       265,
+       5,
+       345,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Withdraw",
+      "box": [
+       348,
+       5,
+       428,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Transfer",
+      "box": [
+       431,
+       5,
+       511,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Close Acct",
+      "box": [
+       524,
+       5,
+       604,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Show All",
+      "box": [
+       1288,
+       5,
+       1361,
+       29
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Account No / Name",
+      "box": [
+       1060,
+       7,
+       1218,
+       25
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Account No",
+      "box": [
+       8,
+       46,
+       79,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Customer Name",
+      "box": [
+       170,
+       46,
+       266,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Type",
+      "box": [
+       413,
+       46,
+       442,
+       57
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Balance",
+      "box": [
+       562,
+       45,
+       608,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Status",
+      "box": [
+       736,
+       46,
+       776,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Email",
+      "box": [
+       872,
+       45,
+       903,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Phone",
+      "box": [
+       1174,
+       45,
+       1212,
+       55
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Account No / Name:",
+      "box": [
+       941,
+       10,
+       1054,
+       24
+      ]
+     }
+    ]
+   }
+  },
+  "n2": {
+   "name": "New Account",
+   "kind": "dialog",
+   "parent": "n1",
+   "seen": 3,
+   "first_seen": "2026-09-24T16:15:27",
+   "skeleton": {
+    "window_title": "New Account",
+    "size": [
+     376,
+     211
+    ],
+    "elements": [
+     {
+      "kind": "input",
+      "key": "Customer name",
+      "box": [
+       120,
+       17,
+       362,
+       35
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Email",
+      "box": [
+       120,
+       45,
+       362,
+       63
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Phone",
+      "box": [
+       120,
+       73,
+       362,
+       91
+      ]
+     },
+     {
+      "kind": "dropdown",
+      "key": "Account type",
+      "box": [
+       118,
+       99,
+       361,
+       122
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Opening deposit",
+      "box": [
+       120,
+       131,
+       362,
+       149
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Save",
+      "box": [
+       197,
+       175,
+       277,
+       199
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Cancel",
+      "box": [
+       282,
+       175,
+       362,
+       199
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Customer name:",
+      "box": [
+       14,
+       22,
+       104,
+       32
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Email:",
+      "box": [
+       14,
+       49,
+       44,
+       60
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Phone:",
+      "box": [
+       14,
+       77,
+       52,
+       88
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Account type:",
+      "box": [
+       14,
+       106,
+       92,
+       118
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Opening deposit:",
+      "box": [
+       14,
+       135,
+       108,
+       148
+      ]
+     }
+    ]
+   }
+  },
+  "n3": {
+   "name": "Account Details - *",
+   "kind": "dialog",
+   "parent": "n1",
+   "seen": 58,
+   "first_seen": "2026-09-24T16:15:34",
+   "skeleton": {
+    "window_title": "Account Details - *",
+    "size": [
+     760,
+     420
+    ],
+    "elements": [
+     {
+      "kind": "button",
+      "key": "Counter",
+      "box": [
+       455,
+       146,
+       542,
+       159
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Close",
+      "box": [
+       672,
+       388,
+       752,
+       412
+      ]
+     }
+    ]
+   }
+  },
+  "n5": {
+   "name": "Record Not Found",
+   "kind": "messagebox",
+   "parent": "n1",
+   "seen": 3,
+   "first_seen": "2026-09-24T17:15:31",
+   "skeleton": {
+    "window_title": "Record Not Found",
+    "size": [
+     276,
+     120
+    ],
+    "elements": [
+     {
+      "kind": "input",
+      "key": "input_1",
+      "box": [
+       188,
+       90,
+       259,
+       109
+      ]
+     }
+    ]
+   }
+  },
+  "n8": {
+   "name": "Application Error",
+   "kind": "messagebox",
+   "parent": "n1",
+   "seen": 2,
+   "first_seen": "2026-09-24T17:38:56",
+   "skeleton": {
+    "window_title": "Application Error",
+    "size": [
+     374,
+     140
+    ],
+    "elements": [
+     {
+      "kind": "input",
+      "key": "input_1",
+      "box": [
+       286,
+       109,
+       357,
+       128
+      ]
+     }
+    ]
+   }
+  },
+  "n10": {
+   "name": "Deposit",
+   "kind": "dialog",
+   "parent": "n1",
+   "seen": 5,
+   "first_seen": "2026-09-24T17:46:01",
+   "skeleton": {
+    "window_title": "Deposit",
+    "size": [
+     372,
+     209
+    ],
+    "elements": [
+     {
+      "kind": "button",
+      "key": "Ahmed Chen",
+      "box": [
+       115,
+       44,
+       361,
+       66
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Amount",
+      "box": [
+       116,
+       101,
+       358,
+       119
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Description",
+      "box": [
+       116,
+       129,
+       358,
+       147
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Deposit",
+      "box": [
+       193,
+       173,
+       273,
+       197
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Cancel",
+      "box": [
+       278,
+       173,
+       358,
+       197
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Amount:",
+      "box": [
+       14,
+       106,
+       62,
+       116
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Description:",
+      "box": [
+       14,
+       134,
+       78,
+       145
+      ]
+     }
+    ]
+   }
+  },
+  "n7": {
+   "name": "BankAPP - Core Banking System",
+   "kind": "main",
+   "parent": null,
+   "seen": 6,
+   "first_seen": "2026-09-24T18:21:36",
+   "skeleton": {
+    "window_title": "BankAPP - Core Banking System",
+    "size": [
+     1366,
+     697
+    ],
+    "elements": [
+     {
+      "kind": "input",
+      "key": "User name",
+      "box": [
+       632,
+       284,
+       832,
+       302
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Password",
+      "box": [
+       632,
+       312,
+       832,
+       330
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "0K",
+      "box": [
+       684,
+       348,
+       764,
+       372
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Exit",
+      "box": [
+       769,
+       348,
+       849,
+       372
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "User name:",
+      "box": [
+       518,
+       288,
+       578,
+       298
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Password:",
+      "box": [
+       518,
+       316,
+       572,
+       326
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "edges": [
+  {
+   "from": "n1",
+   "action": {
+    "type": "click",
+    "kind": "button",
+    "key": "New"
+   },
+   "to": {
+    "n2": 1
+   },
+   "miss": {},
+   "by": {
+    "agent": 1
+   }
+  },
+  {
+   "from": "n1",
+   "action": {
+    "type": "click",
+    "kind": "button",
+    "key": "Details"
+   },
+   "to": {
+    "n3": 1
+   },
+   "miss": {},
+   "by": {
+    "agent": 1
+   }
+  },
+  {
+   "from": "n3",
+   "action": {
+    "type": "key",
+    "keys": "esc"
+   },
+   "to": {
+    "n1": 11
+   },
+   "miss": {},
+   "by": {
+    "agent": 11
+   }
+  },
+  {
+   "from": "n1",
+   "action": {
+    "type": "double_click",
+    "kind": "table_row"
+   },
+   "to": {
+    "n3": 21,
+    "n8": 1
+   },
+   "miss": {},
+   "by": {
+    "agent": 22,
+    "person": 3
+   }
+  },
+  {
+   "from": "n1",
+   "action": {
+    "type": "click",
+    "kind": "button",
+    "key": "Find"
+   },
+   "to": {
+    "n5": 2
+   },
+   "miss": {},
+   "by": {
+    "agent": 2
+   }
+  },
+  {
+   "from": "n5",
+   "action": {
+    "type": "key",
+    "keys": "esc"
+   },
+   "to": {
+    "n1": 1
+   },
+   "miss": {},
+   "by": {
+    "agent": 1
+   }
+  },
+  {
+   "from": "n1",
+   "action": {
+    "type": "click",
+    "kind": "button",
+    "key": "Show All"
+   },
+   "to": {
+    "n8": 1
+   },
+   "miss": {},
+   "by": {
+    "agent": 1
+   }
+  },
+  {
+   "from": "n8",
+   "action": {
+    "type": "key",
+    "keys": "enter"
+   },
+   "to": {
+    "n1": 2
+   },
+   "miss": {},
+   "by": {
+    "agent": 2
+   }
+  },
+  {
+   "from": "n1",
+   "action": {
+    "type": "click",
+    "kind": "button",
+    "key": "Deposit"
+   },
+   "to": {
+    "n10": 1
+   },
+   "miss": {},
+   "by": {
+    "person": 1
+   }
+  },
+  {
+   "from": "n7",
+   "action": {
+    "type": "key",
+    "keys": "enter"
+   },
+   "to": {
+    "n1": 1
+   },
+   "by": {
+    "person": 1
+   }
+  }
+ ]
+}

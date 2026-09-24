@@ -1,0 +1,167 @@
+{
+ "screen": "Account Details - <ACCT_6>",
+ "menu": [],
+ "buttons": [
+  {
+   "id": "btn_counter",
+   "text": "Counter"
+  },
+  {
+   "id": "btn_close",
+   "text": "Close"
+  }
+ ],
+ "inputs": [],
+ "table": {
+  "columns": [
+   "Date Time",
+   "Amount",
+   "Balance After",
+   "Descri",
+   "tion"
+  ],
+  "sortable_headers": [
+   "col_date_time",
+   "col_amount",
+   "col_balance_after",
+   "col_descri",
+   "col_tion"
+  ],
+  "visible_rows": 4,
+  "selected_row": null,
+  "rows": [
+   {
+    "id": "row_1",
+    "values": [
+     "<TEXT_8>",
+     "<AMOUNT_38>",
+     "<AMOUNT_10>",
+     "<TEXT_3>",
+     "deposit"
+    ]
+   },
+   {
+    "id": "row_2",
+    "values": [
+     "<TEXT_9>",
+     "<AMOUNT_39>",
+     "<AMOUNT_40>",
+     "<TEXT_3>",
+     "deposit"
+    ]
+   },
+   {
+    "id": "row_3",
+    "values": [
+     "<TEXT_10>",
+     "<AMOUNT_41>",
+     "<AMOUNT_42>",
+     "<TEXT_3>",
+     "deposit"
+    ]
+   },
+   {
+    "id": "row_4",
+    "values": [
+     "<TEXT_11>",
+     "<AMOUNT_43>",
+     "<AMOUNT_43>",
+     "<TEXT_7>",
+     "deposit"
+    ]
+   }
+  ]
+ },
+ "other_text": [
+  {
+   "text": "Account",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "Account No:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "<ACCT_6>",
+   "content": "dynamic",
+   "kind": "text"
+  },
+  {
+   "text": "Customer:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "<NAME_1>",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "Type:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "Savings",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "Status:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "ACTIVE",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "Balance:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "<AMOUNT_10>",
+   "content": "dynamic",
+   "kind": "text"
+  },
+  {
+   "text": "Opened:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "2025-12-31",
+   "content": "dynamic",
+   "kind": "text"
+  },
+  {
+   "text": "Email:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "<EMAIL_6>",
+   "content": "dynamic",
+   "kind": "text"
+  },
+  {
+   "text": "Phone:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "<PHONE_6>",
+   "content": "dynamic",
+   "kind": "text"
+  },
+  {
+   "text": "Transactions (4)",
+   "content": "dynamic",
+   "kind": "text"
+  }
+ ]
+}

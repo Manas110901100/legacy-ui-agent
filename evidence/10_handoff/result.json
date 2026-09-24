@@ -1,0 +1,67 @@
+{
+ "run_id": "20260924_172841_account_details",
+ "capability": "bankapp.account_details",
+ "version": 1,
+ "mode": "replay",
+ "status": "success",
+ "outcome": null,
+ "outputs": {
+  "account_no": "<ACCT_12>",
+  "customer": "<NAME_11>",
+  "account_type": "Savings",
+  "status": "ACTIVE",
+  "balance": "<AMOUNT_43>",
+  "transactions": [
+   [
+    "2025-09-13 DEPOSIT",
+    "<AMOUNT_33>",
+    "<AMOUNT_11>",
+    "Cash",
+    "deposit"
+   ],
+   [
+    "2025-08-30 14:15:00 WITHDRAWAL",
+    "<AMOUNT_34>",
+    "<AMOUNT_35>",
+    "ATM",
+    "withdrawal"
+   ],
+   [
+    "2025-08-26 12:36:00 WITHDRAWAL",
+    "<AMOUNT_36>",
+    "<AMOUNT_37>",
+    "ATM",
+    "withdrawal"
+   ],
+   [
+    "2025-07-31 04:32:00 WITHDRAWAL",
+    "<AMOUNT_38>",
+    "<AMOUNT_39>",
+    "ATM",
+    "withdrawal"
+   ],
+   [
+    "2025-07-01 18:48:00 DEPOSIT",
+    "<AMOUNT_40>",
+    "<AMOUNT_41>",
+    "Cash",
+    "deposit"
+   ],
+   [
+    "2025-06-24 09:36:00 DEPOSIT",
+    "<AMOUNT_42>",
+    "<AMOUNT_42>",
+    "Opening",
+    "deposit"
+   ]
+  ]
+ },
+ "answer": "account_no: <ACCT_12>\ncustomer: <NAME_11>\naccount_type: Savings\nstatus: ACTIVE\nbalance: <AMOUNT_43>\ntransactions: 6 rows\n  2025-09-13 DEPOSIT | <AMOUNT_33> | <AMOUNT_11> | Cash | deposit\n  2025-08-30 14:15:00 WITHDRAWAL | <AMOUNT_34> | <AMOUNT_35> | ATM | withdrawal\n  2025-08-26 12:36:00 WITHDRAWAL | <AMOUNT_36> | <AMOUNT_37> | ATM | withdrawal\n  2025-07-31 04:32:00 WITHDRAWAL | <AMOUNT_38> | <AMOUNT_39> | ATM | withdrawal\n  2025-07-01 18:48:00 DEPOSIT | <AMOUNT_40> | <AMOUNT_41> | Cash | deposit\n  2025-06-24 09:36:00 DEPOSIT | <AMOUNT_42> | <AMOUNT_42> | Opening | deposit",
+ "failure": null,
+ "recoveries": [],
+ "interventions": [
+  "intervention_01.json"
+ ],
+ "llm_calls": 1,
+ "duration_s": 53.6
+}

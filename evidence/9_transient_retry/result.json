@@ -1,0 +1,53 @@
+{
+ "run_id": "20260924_173923_account_details_replay",
+ "capability": "bankapp.account_details",
+ "version": 2,
+ "mode": "replay",
+ "status": "success",
+ "outcome": null,
+ "outputs": {
+  "account_no": "<ACCT_1>",
+  "customer": "<NAME_12>",
+  "account_type": "Checking",
+  "status": "ACTIVE",
+  "balance": "<AMOUNT_44>",
+  "transactions": [
+   [
+    "2025-03-27 DEPOSIT",
+    "<AMOUNT_38>",
+    "<AMOUNT_17>",
+    "Cash",
+    "deposit"
+   ],
+   [
+    "2025-02-27 18:47:00 DEPOSIT",
+    "<AMOUNT_39>",
+    "<AMOUNT_40>",
+    "Cash",
+    "deposit"
+   ],
+   [
+    "2025-02-13 15:40:00 DEPOSIT",
+    "<AMOUNT_41>",
+    "<AMOUNT_42>",
+    "Cash",
+    "deposit"
+   ],
+   [
+    "2025-02-06 12:26:00 DEPOSIT",
+    "<AMOUNT_43>",
+    "<AMOUNT_43>",
+    "Opening",
+    "deposit"
+   ]
+  ]
+ },
+ "answer": "account_no: <ACCT_1>\ncustomer: <NAME_12>\naccount_type: Checking\nstatus: ACTIVE\nbalance: <AMOUNT_44>\ntransactions: 4 rows\n  2025-03-27 DEPOSIT | <AMOUNT_38> | <AMOUNT_17> | Cash | deposit\n  2025-02-27 18:47:00 DEPOSIT | <AMOUNT_39> | <AMOUNT_40> | Cash | deposit\n  2025-02-13 15:40:00 DEPOSIT | <AMOUNT_41> | <AMOUNT_42> | Cash | deposit\n  2025-02-06 12:26:00 DEPOSIT | <AMOUNT_43> | <AMOUNT_43> | Opening | deposit",
+ "failure": null,
+ "recoveries": [
+  "retried step s3 after 'Application Error' (attempt 1)"
+ ],
+ "interventions": [],
+ "llm_calls": 0,
+ "duration_s": 20.0
+}

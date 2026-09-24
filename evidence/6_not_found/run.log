@@ -1,0 +1,10 @@
+[17:15:18] invoke bankapp.account_details v1 [approved] with {"account": "<ACCT_1>"}
+[17:15:20] navigate: Account Details - * --key esc--> BankAPP - Core Banking System
+[17:15:20]   did: key  esc
+[17:15:23] reset: click Show All
+[17:15:24]   did: click Show All
+[17:15:26] step 1/3: type Account No / Name {account}
+[17:15:27]   did: type Account No / Name {account}
+[17:15:29] step 2/3: click Find
+[17:15:30]   did: click Find
+[17:15:31] RESULT business_outcome (record_not_found)

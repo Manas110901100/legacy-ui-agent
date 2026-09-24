@@ -1,0 +1,17 @@
+BankAPP - Core Banking System (main, seen 103)   via key enter, key esc
+|- Account Details - * (dialog, seen 50)   via click Details, double_click table_row
+|- Application Error (message box, seen 2)   via click Show All, double_click table_row
+|- Deposit (dialog, seen 5)   via click Deposit
+|- New Account (dialog, seen 3)   via click New
+`- Record Not Found (message box, seen 2)   via click Find
+
+learned moves:
+  BankAPP - Core Banking System --double_click table_row--> Account Details - *: 17 ok, 0 failed, reliability 0.95
+  BankAPP - Core Banking System --click New--> New Account: 1 ok, 0 failed, reliability 0.67
+  BankAPP - Core Banking System --click Details--> Account Details - *: 1 ok, 0 failed, reliability 0.67
+  BankAPP - Core Banking System --click Find--> Record Not Found: 1 ok, 0 failed, reliability 0.67
+  BankAPP - Core Banking System --click Show All--> Application Error: 1 ok, 0 failed, reliability 0.67
+  BankAPP - Core Banking System --click Deposit--> Deposit: 1 ok, 0 failed, reliability 0.67
+  Account Details - * --key esc--> BankAPP - Core Banking System: 10 ok, 0 failed, reliability 0.92
+  Record Not Found --key esc--> BankAPP - Core Banking System: 1 ok, 0 failed, reliability 0.67
+  Application Error --key enter--> BankAPP - Core Banking System: 2 ok, 0 failed, reliability 0.75

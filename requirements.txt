@@ -1,0 +1,13 @@
+# Windows 10 2004+ / Python 3.12
+openai
+python-dotenv
+pydantic>=2
+pyautogui
+pyperclip
+keyboard
+opencv-python
+pillow
+numpy
+winsdk
+# tests
+pytest>=8

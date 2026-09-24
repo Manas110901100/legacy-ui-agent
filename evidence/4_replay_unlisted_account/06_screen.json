@@ -1,0 +1,105 @@
+{
+ "screen": "BankAPP - Core Banking System",
+ "menu": [],
+ "buttons": [
+  {
+   "id": "btn_new",
+   "text": "New"
+  },
+  {
+   "id": "btn_edit",
+   "text": "Edit"
+  },
+  {
+   "id": "btn_details",
+   "text": "Details"
+  },
+  {
+   "id": "btn_deposit",
+   "text": "Deposit"
+  },
+  {
+   "id": "btn_withdraw",
+   "text": "Withdraw"
+  },
+  {
+   "id": "btn_transfer",
+   "text": "Transfer"
+  },
+  {
+   "id": "btn_close_acct",
+   "text": "Close Acct"
+  },
+  {
+   "id": "btn_show_all",
+   "text": "Show All"
+  }
+ ],
+ "inputs": [
+  {
+   "id": "input_1",
+   "kind": "input",
+   "label": "Account No / Name",
+   "role": "field",
+   "value": "<ACCT_1>"
+  }
+ ],
+ "table": {
+  "columns": [
+   "Account No",
+   "Customer Name",
+   "Type",
+   "Balance",
+   "Status",
+   "Email",
+   "Phone"
+  ],
+  "sortable_headers": [
+   "col_account_no",
+   "col_customer_name",
+   "col_type",
+   "col_balance",
+   "col_status",
+   "col_email",
+   "col_phone"
+  ],
+  "visible_rows": 1,
+  "selected_row": "row_1",
+  "scroll": {
+   "visible_fraction": 0.5,
+   "at_top": false,
+   "at_bottom": true
+  },
+  "rows": [
+   {
+    "id": "row_1",
+    "values": [
+     "<ACCT_1>",
+     "<NAME_32>",
+     "Checking",
+     "<AMOUNT_39>",
+     "ACTIVE",
+     "<EMAIL_33>",
+     "<PHONE_33>"
+    ]
+   }
+  ]
+ },
+ "other_text": [
+  {
+   "text": "1 account(s) matching '<ACCT_1>'",
+   "content": "dynamic",
+   "kind": "status"
+  },
+  {
+   "text": "User:",
+   "content": "static",
+   "kind": "status"
+  },
+  {
+   "text": "admin (admin)",
+   "content": "dynamic",
+   "kind": "status"
+  }
+ ]
+}

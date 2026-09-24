@@ -1,0 +1,187 @@
+{
+ "screen": "Account Details - <ACCT_12>",
+ "menu": [],
+ "buttons": [
+  {
+   "id": "btn_counter",
+   "text": "Counter"
+  },
+  {
+   "id": "btn_close",
+   "text": "Close"
+  }
+ ],
+ "inputs": [],
+ "table": {
+  "columns": [
+   "Date Time",
+   "Amount",
+   "Balance After",
+   "Descri",
+   "tion"
+  ],
+  "sortable_headers": [
+   "col_date_time",
+   "col_amount",
+   "col_balance_after",
+   "col_descri",
+   "col_tion"
+  ],
+  "visible_rows": 6,
+  "selected_row": null,
+  "rows": [
+   {
+    "id": "row_1",
+    "values": [
+     "<TEXT_2>",
+     "<AMOUNT_33>",
+     "<AMOUNT_11>",
+     "<TEXT_3>",
+     "deposit"
+    ]
+   },
+   {
+    "id": "row_2",
+    "values": [
+     "<TEXT_4>",
+     "<AMOUNT_34>",
+     "<AMOUNT_35>",
+     "<TEXT_5>",
+     "withdrawal"
+    ]
+   },
+   {
+    "id": "row_3",
+    "values": [
+     "<TEXT_6>",
+     "<AMOUNT_36>",
+     "<AMOUNT_37>",
+     "<TEXT_5>",
+     "withdrawal"
+    ]
+   },
+   {
+    "id": "row_4",
+    "values": [
+     "<TEXT_7>",
+     "<AMOUNT_38>",
+     "<AMOUNT_39>",
+     "<TEXT_5>",
+     "withdrawal"
+    ]
+   },
+   {
+    "id": "row_5",
+    "values": [
+     "<TEXT_8>",
+     "<AMOUNT_40>",
+     "<AMOUNT_41>",
+     "<TEXT_3>",
+     "deposit"
+    ]
+   },
+   {
+    "id": "row_6",
+    "values": [
+     "<TEXT_9>",
+     "<AMOUNT_42>",
+     "<AMOUNT_42>",
+     "<TEXT_10>",
+     "deposit"
+    ]
+   }
+  ]
+ },
+ "other_text": [
+  {
+   "text": "Account",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "Account No:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "<TEXT_1>",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "Customer:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "<NAME_11>",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "Type:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "Savings",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "Status:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "ACTIVE",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "Balance:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "<AMOUNT_11>",
+   "content": "dynamic",
+   "kind": "text"
+  },
+  {
+   "text": "Opened:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "2025-06-24",
+   "content": "dynamic",
+   "kind": "text"
+  },
+  {
+   "text": "Email:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "<EMAIL_11>",
+   "content": "dynamic",
+   "kind": "text"
+  },
+  {
+   "text": "Phone:",
+   "content": "static",
+   "kind": "text"
+  },
+  {
+   "text": "<PHONE_11>",
+   "content": "dynamic",
+   "kind": "text"
+  },
+  {
+   "text": "Transactions (6)",
+   "content": "dynamic",
+   "kind": "text"
+  }
+ ]
+}

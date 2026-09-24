@@ -1,0 +1,305 @@
+{
+ "app": "bankapp",
+ "product": "BankAPP",
+ "vendor_version": "1.0",
+ "surface": "desktop-ocr",
+ "window_title": "BankAPP",
+ "launch": "cd ../BankAPP && .venv\\Scripts\\python -m bankapp",
+ "run_timeout_seconds": 300,
+ "busy_windows": [
+  "Please Wait"
+ ],
+ "close_buttons": [
+  "Close",
+  "Cancel",
+  "OK"
+ ],
+ "reset": [
+  {
+   "type": "click",
+   "target": {
+    "kind": "button",
+    "key": "Show All"
+   }
+  }
+ ],
+ "deny": [
+  "edit",
+  "deposit",
+  "withdraw",
+  "transfer",
+  "close acc",
+  "delete",
+  "remove",
+  "log off",
+  "exit"
+ ],
+ "dialogs": [
+  {
+   "title": "Record Not Found",
+   "outcome": "record_not_found"
+  },
+  {
+   "title": "Validation Error",
+   "outcome": "validation_error"
+  },
+  {
+   "title": "Access Denied",
+   "outcome": "permission_denied"
+  },
+  {
+   "title": "Session Expired",
+   "outcome": "session_expired"
+  },
+  {
+   "title": "Temporarily Unavailable",
+   "outcome": "transient"
+  },
+  {
+   "title": "Application Error",
+   "text": "unavailable|try again|did not respond",
+   "outcome": "transient",
+   "note": "BankAPP retries 3x itself, then reports a temporary outage this way"
+  },
+  {
+   "title": "Application Error",
+   "outcome": "app_error"
+  },
+  {
+   "title": "Confirm",
+   "outcome": "confirmation"
+  },
+  {
+   "title": "Error",
+   "outcome": "app_error"
+  }
+ ],
+ "capabilities": {
+  "create_account": {
+   "mode": "write",
+   "description": "Open a new customer account and reach the confirmation message.",
+   "inputs": {
+    "name": {
+     "type": "name",
+     "validate": "name",
+     "pii": "NAME",
+     "question": "Customer name?",
+     "description": "Customer full name, 2-60 letters"
+    },
+    "email": {
+     "type": "email",
+     "validate": "email",
+     "pii": "EMAIL",
+     "question": "Customer email?",
+     "description": "Customer email address"
+    },
+    "phone": {
+     "type": "phone",
+     "validate": "phone",
+     "pii": "PHONE",
+     "question": "Customer phone number?",
+     "description": "8-20 digits; spaces, dashes and a leading + are allowed"
+    },
+    "account_type": {
+     "type": "enum",
+     "enum": [
+      "Savings",
+      "Checking"
+     ],
+     "validate": "account_type",
+     "pii": null,
+     "question": "Account type - Savings or Checking?",
+     "description": "Kind of account"
+    },
+    "opening_deposit": {
+     "type": "money",
+     "validate": "amount",
+     "pii": "AMOUNT",
+     "question": "Opening deposit amount?",
+     "description": "Greater than 0, at most 1,000,000.00, 2 decimals"
+    }
+   },
+   "outputs": {
+    "account_no": {
+     "type": "account_no",
+     "pattern": "ACC\\d{6}",
+     "description": "Number of the new account",
+     "extract": {
+      "pattern": "Account {value} opened for *"
+     }
+    }
+   },
+   "allow": {
+    "clicks": [
+     "New",
+     "Save",
+     "Cancel",
+     "OK"
+    ],
+    "types": [
+     "Customer name",
+     "Email",
+     "Phone",
+     "Opening deposit"
+    ],
+    "selects": [
+     "Account type"
+    ],
+    "windows": [
+     "BankAPP",
+     "New Account",
+     "Success"
+    ]
+   }
+  },
+  "account_details": {
+   "mode": "read",
+   "description": "Open one account's details (balance, status, contact, transactions) and read them.",
+   "inputs": {
+    "account": {
+     "type": "account_ref",
+     "validate": "account",
+     "pii": "ACCOUNT",
+     "question": "Which account - account number or customer name?",
+     "description": "Account number (ACC123456) or customer name; several matches -> the user picks",
+     "record_key": true
+    }
+   },
+   "outputs": {
+    "account_no": {
+     "type": "account_no",
+     "pattern": "ACC\\d{6}",
+     "description": "Account number",
+     "extract": {
+      "label": "Account No"
+     }
+    },
+    "customer": {
+     "type": "string",
+     "pii": "NAME",
+     "description": "Customer name",
+     "extract": {
+      "label": "Customer"
+     }
+    },
+    "account_type": {
+     "type": "string",
+     "description": "Savings or Checking",
+     "extract": {
+      "label": "Type"
+     }
+    },
+    "status": {
+     "type": "string",
+     "description": "ACTIVE or CLOSED",
+     "extract": {
+      "label": "Status"
+     }
+    },
+    "balance": {
+     "type": "money",
+     "description": "Current balance",
+     "extract": {
+      "label": "Balance"
+     }
+    },
+    "transactions": {
+     "type": "table",
+     "description": "Rows of the transaction list (date, type, amount, balance after, ...)",
+     "extract": {
+      "rows_below": "Date/Time"
+     }
+    }
+   },
+   "allow": {
+    "clicks": [
+     "Find",
+     "Show All",
+     "Details",
+     "Close",
+     "OK"
+    ],
+    "types": [
+     "Account No / Name"
+    ],
+    "rows": true,
+    "headers": true,
+    "windows": [
+     "BankAPP",
+     "Account Details",
+     "No Selection",
+     "Record Not Found"
+    ]
+   }
+  },
+  "find_account": {
+   "mode": "read",
+   "description": "Search accounts by account number or customer name and list the matches.",
+   "inputs": {
+    "query": {
+     "type": "account_ref",
+     "validate": "account",
+     "pii": "ACCOUNT",
+     "question": "Account number or customer name to search for?",
+     "description": "Account number or (part of a) customer name"
+    }
+   },
+   "outputs": {
+    "matches": {
+     "type": "list",
+     "description": "Account numbers of the matching rows",
+     "extract": {
+      "column": "Account No"
+     }
+    },
+    "count": {
+     "type": "number",
+     "description": "Number of matching accounts",
+     "extract": {
+      "pattern": "{value} account(s)*"
+     }
+    }
+   },
+   "allow": {
+    "clicks": [
+     "Find",
+     "Show All",
+     "OK"
+    ],
+    "types": [
+     "Account No / Name"
+    ],
+    "rows": true,
+    "headers": true,
+    "windows": [
+     "BankAPP",
+     "Record Not Found"
+    ]
+   }
+  },
+  "list_accounts": {
+   "mode": "read",
+   "description": "Show all accounts in the grid.",
+   "inputs": {},
+   "outputs": {
+    "count": {
+     "type": "number",
+     "description": "Number of accounts",
+     "extract": {
+      "pattern": "{value} account(s)*"
+     }
+    }
+   },
+   "allow": {
+    "clicks": [
+     "Show All"
+    ],
+    "rows": true,
+    "headers": true,
+    "windows": [
+     "BankAPP"
+    ]
+   }
+  }
+ }
+}

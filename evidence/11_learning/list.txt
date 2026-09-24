@@ -1,0 +1,4 @@
+bankapp.account_details  v2  [approved]  read  (account: account_ref) -> (account_no: account_no, customer: string, account_type: string, status: string, balance: money, transactions: table)  3 steps
+    reliability 0.76 over 19 run(s), 14 clean
+bankapp.create_account  v2  [draft]  write  (name: name, email: email, phone: phone, account_type: enum, opening_deposit: money) -> (account_no: account_no)  7 steps
+    no runs yet

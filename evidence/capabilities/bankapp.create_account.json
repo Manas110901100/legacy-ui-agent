@@ -1,0 +1,1130 @@
+{
+ "schema": "capability/1",
+ "id": "bankapp.create_account",
+ "version": 2,
+ "status": "draft",
+ "app": {
+  "app": "bankapp",
+  "product": "BankAPP",
+  "vendor_version": "1.0",
+  "surface": "desktop-ocr"
+ },
+ "description": "Open a new customer account and reach the confirmation message.",
+ "mode": "write",
+ "inputs": {
+  "name": {
+   "type": "name",
+   "description": "Customer full name, 2-60 letters",
+   "pii": "NAME",
+   "required": true
+  },
+  "email": {
+   "type": "email",
+   "description": "Customer email address",
+   "pii": "EMAIL",
+   "required": true
+  },
+  "phone": {
+   "type": "phone",
+   "description": "8-20 digits; spaces, dashes and a leading + are allowed",
+   "pii": "PHONE",
+   "required": true
+  },
+  "account_type": {
+   "type": "enum",
+   "description": "Kind of account",
+   "enum": [
+    "Savings",
+    "Checking"
+   ],
+   "required": true
+  },
+  "opening_deposit": {
+   "type": "money",
+   "description": "Greater than 0, at most 1,000,000.00, 2 decimals",
+   "pii": "AMOUNT",
+   "required": true
+  }
+ },
+ "outputs": {
+  "account_no": {
+   "type": "account_no",
+   "description": "Number of the new account",
+   "pattern": "ACC\\d{6}",
+   "extract": {
+    "pattern": "Account {value} opened for *"
+   }
+  }
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "kind": "action",
+   "window": "BankAPP - Core Banking System",
+   "action": "click",
+   "target": {
+    "role": "button",
+    "label": "New"
+   },
+   "guide": [],
+   "fingerprint": {
+    "window_title": "BankAPP - Core Banking System",
+    "size": [
+     1366,
+     677
+    ],
+    "elements": [
+     {
+      "kind": "button",
+      "key": "New",
+      "box": [
+       6,
+       5,
+       86,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Edit",
+      "box": [
+       89,
+       5,
+       169,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Details",
+      "box": [
+       172,
+       5,
+       252,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Deposit",
+      "box": [
+       265,
+       5,
+       345,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Withdraw",
+      "box": [
+       348,
+       5,
+       428,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Transfer",
+      "box": [
+       431,
+       5,
+       511,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Close Acct",
+      "box": [
+       524,
+       5,
+       604,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Show All",
+      "box": [
+       1288,
+       5,
+       1361,
+       29
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Account No / Name",
+      "box": [
+       1060,
+       7,
+       1218,
+       25
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Account No",
+      "box": [
+       8,
+       46,
+       79,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Customer Name",
+      "box": [
+       170,
+       46,
+       266,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Type",
+      "box": [
+       413,
+       46,
+       442,
+       57
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Balance",
+      "box": [
+       562,
+       45,
+       608,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Status",
+      "box": [
+       734,
+       46,
+       776,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Email",
+      "box": [
+       872,
+       45,
+       902,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Phone",
+      "box": [
+       1174,
+       45,
+       1212,
+       55
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Account No / Name:",
+      "box": [
+       941,
+       10,
+       1054,
+       24
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s2",
+   "kind": "action",
+   "window": "New Account",
+   "action": "type",
+   "target": {
+    "role": "input",
+    "label": "Customer name"
+   },
+   "value": "{name}",
+   "guide": [],
+   "fingerprint": {
+    "window_title": "New Account",
+    "size": [
+     376,
+     211
+    ],
+    "elements": [
+     {
+      "kind": "input",
+      "key": "Customer name",
+      "box": [
+       120,
+       17,
+       362,
+       35
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Email",
+      "box": [
+       120,
+       45,
+       362,
+       63
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Phone",
+      "box": [
+       120,
+       73,
+       362,
+       91
+      ]
+     },
+     {
+      "kind": "dropdown",
+      "key": "Account type",
+      "box": [
+       118,
+       99,
+       361,
+       122
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Opening deposit",
+      "box": [
+       120,
+       131,
+       362,
+       149
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Save",
+      "box": [
+       197,
+       175,
+       277,
+       199
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Cancel",
+      "box": [
+       282,
+       175,
+       362,
+       199
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Customer name:",
+      "box": [
+       14,
+       22,
+       104,
+       32
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Email:",
+      "box": [
+       14,
+       49,
+       44,
+       60
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Phone:",
+      "box": [
+       14,
+       77,
+       52,
+       88
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Account type:",
+      "box": [
+       14,
+       106,
+       92,
+       118
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Opening deposit:",
+      "box": [
+       14,
+       135,
+       108,
+       148
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s3",
+   "kind": "action",
+   "window": "New Account",
+   "action": "type",
+   "target": {
+    "role": "input",
+    "label": "Email"
+   },
+   "value": "{email}",
+   "guide": [],
+   "fingerprint": {
+    "window_title": "New Account",
+    "size": [
+     376,
+     211
+    ],
+    "elements": [
+     {
+      "kind": "input",
+      "key": "Customer name",
+      "box": [
+       120,
+       17,
+       362,
+       35
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Email",
+      "box": [
+       120,
+       45,
+       362,
+       63
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Phone",
+      "box": [
+       120,
+       73,
+       362,
+       91
+      ]
+     },
+     {
+      "kind": "dropdown",
+      "key": "Account type",
+      "box": [
+       118,
+       99,
+       361,
+       122
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Opening deposit",
+      "box": [
+       120,
+       131,
+       362,
+       149
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Save",
+      "box": [
+       197,
+       175,
+       277,
+       199
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Cancel",
+      "box": [
+       282,
+       175,
+       362,
+       199
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Customer name:",
+      "box": [
+       14,
+       22,
+       104,
+       32
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Email:",
+      "box": [
+       14,
+       49,
+       44,
+       60
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Phone:",
+      "box": [
+       14,
+       77,
+       52,
+       88
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Account type:",
+      "box": [
+       14,
+       106,
+       92,
+       118
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Opening deposit:",
+      "box": [
+       14,
+       135,
+       108,
+       148
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s4",
+   "kind": "action",
+   "window": "New Account",
+   "action": "type",
+   "target": {
+    "role": "input",
+    "label": "Phone"
+   },
+   "value": "{phone}",
+   "guide": [],
+   "fingerprint": {
+    "window_title": "New Account",
+    "size": [
+     376,
+     211
+    ],
+    "elements": [
+     {
+      "kind": "input",
+      "key": "Customer name",
+      "box": [
+       120,
+       17,
+       362,
+       35
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Email",
+      "box": [
+       120,
+       45,
+       362,
+       63
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Phone",
+      "box": [
+       120,
+       73,
+       362,
+       91
+      ]
+     },
+     {
+      "kind": "dropdown",
+      "key": "Account type",
+      "box": [
+       118,
+       99,
+       361,
+       122
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Opening deposit",
+      "box": [
+       120,
+       131,
+       362,
+       149
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Save",
+      "box": [
+       197,
+       175,
+       277,
+       199
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Cancel",
+      "box": [
+       282,
+       175,
+       362,
+       199
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Customer name:",
+      "box": [
+       14,
+       22,
+       104,
+       32
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Email:",
+      "box": [
+       14,
+       49,
+       44,
+       60
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Phone:",
+      "box": [
+       14,
+       77,
+       52,
+       88
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Account type:",
+      "box": [
+       14,
+       106,
+       92,
+       118
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Opening deposit:",
+      "box": [
+       14,
+       135,
+       108,
+       148
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s5",
+   "kind": "action",
+   "window": "New Account",
+   "action": "select",
+   "target": {
+    "role": "dropdown",
+    "label": "Account type"
+   },
+   "value": "{account_type}",
+   "guide": [],
+   "fingerprint": {
+    "window_title": "New Account",
+    "size": [
+     376,
+     211
+    ],
+    "elements": [
+     {
+      "kind": "input",
+      "key": "Customer name",
+      "box": [
+       120,
+       17,
+       362,
+       35
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Email",
+      "box": [
+       120,
+       45,
+       362,
+       63
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Phone",
+      "box": [
+       120,
+       73,
+       362,
+       91
+      ]
+     },
+     {
+      "kind": "dropdown",
+      "key": "Account type",
+      "box": [
+       118,
+       99,
+       361,
+       122
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Opening deposit",
+      "box": [
+       120,
+       131,
+       362,
+       149
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Save",
+      "box": [
+       197,
+       175,
+       277,
+       199
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Cancel",
+      "box": [
+       282,
+       175,
+       362,
+       199
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Customer name:",
+      "box": [
+       14,
+       22,
+       104,
+       32
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Email:",
+      "box": [
+       14,
+       49,
+       44,
+       60
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Phone:",
+      "box": [
+       14,
+       77,
+       52,
+       88
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Account type:",
+      "box": [
+       14,
+       106,
+       92,
+       118
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Opening deposit:",
+      "box": [
+       14,
+       135,
+       108,
+       148
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s6",
+   "kind": "action",
+   "window": "New Account",
+   "action": "type",
+   "target": {
+    "role": "input",
+    "label": "Opening deposit"
+   },
+   "value": "{opening_deposit}",
+   "guide": [],
+   "fingerprint": {
+    "window_title": "New Account",
+    "size": [
+     376,
+     211
+    ],
+    "elements": [
+     {
+      "kind": "input",
+      "key": "Customer name",
+      "box": [
+       120,
+       17,
+       362,
+       35
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Email",
+      "box": [
+       120,
+       45,
+       362,
+       63
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Phone",
+      "box": [
+       120,
+       73,
+       362,
+       91
+      ]
+     },
+     {
+      "kind": "dropdown",
+      "key": "dropdown_4",
+      "box": [
+       118,
+       99,
+       361,
+       122
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Opening deposit",
+      "box": [
+       120,
+       131,
+       362,
+       149
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Save",
+      "box": [
+       197,
+       175,
+       277,
+       199
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Cancel",
+      "box": [
+       282,
+       175,
+       362,
+       199
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Customer name:",
+      "box": [
+       14,
+       22,
+       104,
+       32
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Email:",
+      "box": [
+       14,
+       49,
+       44,
+       60
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Phone:",
+      "box": [
+       14,
+       77,
+       52,
+       88
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Opening deposit:",
+      "box": [
+       14,
+       135,
+       108,
+       148
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s7",
+   "kind": "action",
+   "window": "New Account",
+   "action": "click",
+   "target": {
+    "role": "button",
+    "label": "Save"
+   },
+   "guide": [],
+   "fingerprint": {
+    "window_title": "New Account",
+    "size": [
+     376,
+     211
+    ],
+    "elements": [
+     {
+      "kind": "input",
+      "key": "Customer name",
+      "box": [
+       120,
+       17,
+       362,
+       35
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Email",
+      "box": [
+       120,
+       45,
+       362,
+       63
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Phone",
+      "box": [
+       120,
+       73,
+       362,
+       91
+      ]
+     },
+     {
+      "kind": "dropdown",
+      "key": "Account type",
+      "box": [
+       118,
+       99,
+       361,
+       122
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Opening deposit",
+      "box": [
+       120,
+       131,
+       362,
+       149
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Save",
+      "box": [
+       197,
+       175,
+       277,
+       199
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Cancel",
+      "box": [
+       282,
+       175,
+       362,
+       199
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Customer name:",
+      "box": [
+       14,
+       22,
+       104,
+       32
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Email:",
+      "box": [
+       14,
+       49,
+       44,
+       60
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Phone:",
+      "box": [
+       14,
+       77,
+       52,
+       88
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Account type:",
+      "box": [
+       14,
+       106,
+       92,
+       118
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Opening deposit:",
+      "box": [
+       14,
+       135,
+       108,
+       148
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "checkpoint": {
+  "window": "Success",
+  "text": "Account * opened for {name}."
+ },
+ "final_fingerprint": {
+  "window_title": "Success",
+  "size": [
+   278,
+   120
+  ],
+  "elements": [
+   {
+    "kind": "input",
+    "key": "input_1",
+    "box": [
+     190,
+     90,
+     261,
+     109
+    ]
+   }
+  ]
+ },
+ "outcomes": {
+  "record_not_found": "return",
+  "validation_error": "return",
+  "permission_denied": "return",
+  "session_expired": "escalate",
+  "transient": "escalate",
+  "app_error": "fail",
+  "confirmation": "escalate",
+  "busy": "wait",
+  "ambiguous_match": "return",
+  "unknown_window": "fail",
+  "target_missing": "fail",
+  "checkpoint_failed": "fail",
+  "output_missing": "fail"
+ },
+ "provenance": {
+  "recorded_at": "2026-09-24T13:51:02",
+  "example_goal": "create account for <TEXT_1>, email <EMAIL_1>, phone <PHONE_1>, checking, opening deposit <AMOUNT_1>",
+  "human_steps": 0,
+  "migrated_from": "workflows\\create_account.json"
+ }
+}

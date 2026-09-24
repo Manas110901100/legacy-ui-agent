@@ -1,0 +1,154 @@
+{
+ "task": "what is the balance of <ACCT_1>",
+ "intent": "account_details",
+ "allowed": "click buttons: Find, Show All, Details, Close, OK; type into: Account No / Name; click / double-click table rows; click column headers and the scrollbar; keys: enter, tab, esc. Menus and every other button are refused.",
+ "parameters": {
+  "account": "<ACCT_1>"
+ },
+ "outputs_wanted": {
+  "account_no": "account_no: Account number",
+  "customer": "string: Customer name",
+  "account_type": "string: Savings or Checking",
+  "status": "string: ACTIVE or CLOSED",
+  "balance": "money: Current balance",
+  "transactions": "table: Rows of the transaction list (date, type, amount, balance after, ...)"
+ },
+ "history": [
+  {
+   "event": "double_click {'Account No': '{account}'}",
+   "result": "REFUSED: not allowed yet: first type {account} into the search field and click its search button; only then open the row (on other records the row is not visible without a search)"
+  },
+  {
+   "event": "type Account No / Name {account}",
+   "expect": "The account number <ACCT_1> is typed into the search field.",
+   "result": "screen now: 'BankAPP - Core Banking System'"
+  },
+  {
+   "event": "click Find",
+   "expect": "The table should update to show the search results for account <ACCT_1>.",
+   "result": "screen now: 'BankAPP - Core Banking System'"
+  }
+ ],
+ "map": {
+  "you_are_at": "BankAPP - Core Banking System",
+  "known_moves_here": [
+   "double_click table_row -> Account Details - *",
+   "click New -> New Account",
+   "click Details -> Account Details - *"
+  ],
+  "known_windows": [
+   "BankAPP - Core Banking System (main, seen 38)   via key esc",
+   "|- Account Details - * (dialog, seen 21)   via click Details, double_click table_row",
+   "|- Account Details - * (dialog, seen 3)   via double_click table_row",
+   "`- New Account (dialog, seen 3)   via click New"
+  ]
+ },
+ "screen": {
+  "screen": "BankAPP - Core Banking System",
+  "menu": [],
+  "buttons": [
+   {
+    "id": "btn_new",
+    "text": "New"
+   },
+   {
+    "id": "btn_edit",
+    "text": "Edit"
+   },
+   {
+    "id": "btn_details",
+    "text": "Details"
+   },
+   {
+    "id": "btn_deposit",
+    "text": "Deposit"
+   },
+   {
+    "id": "btn_withdraw",
+    "text": "Withdraw"
+   },
+   {
+    "id": "btn_transfer",
+    "text": "Transfer"
+   },
+   {
+    "id": "btn_close_acct",
+    "text": "Close Acct"
+   },
+   {
+    "id": "btn_show_all",
+    "text": "Show All"
+   }
+  ],
+  "inputs": [
+   {
+    "id": "input_1",
+    "kind": "input",
+    "label": "Account No / Name",
+    "role": "field",
+    "value": "<ACCT_1>"
+   }
+  ],
+  "table": {
+   "columns": [
+    "Account No",
+    "Customer Name",
+    "Type",
+    "Balance",
+    "Status",
+    "Email",
+    "Phone"
+   ],
+   "sortable_headers": [
+    "col_account_no",
+    "col_customer_name",
+    "col_type",
+    "col_balance",
+    "col_status",
+    "col_email",
+    "col_phone"
+   ],
+   "visible_rows": 1,
+   "selected_row": "row_1",
+   "scroll": {
+    "visible_fraction": 0.5,
+    "at_top": false,
+    "at_bottom": true
+   },
+   "rows": [
+    {
+     "id": "row_1",
+     "values": [
+      "<ACCT_1>",
+      "<TEXT_1>",
+      "Savings",
+      "<AMOUNT_2>",
+      "ACTIVE",
+      "<EMAIL_1>",
+      "<PHONE_1>"
+     ],
+     "matches": [
+      "account"
+     ]
+    }
+   ]
+  },
+  "other_text": [
+   {
+    "text": "1 account(s) matching '<ACCT_1>'",
+    "content": "dynamic",
+    "kind": "status"
+   },
+   {
+    "text": "User:",
+    "content": "static",
+    "kind": "status"
+   },
+   {
+    "text": "admin (admin)",
+    "content": "dynamic",
+    "kind": "status"
+   }
+  ]
+ }
+}

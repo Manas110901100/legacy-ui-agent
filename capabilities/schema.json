@@ -1,0 +1,676 @@
+{
+ "$defs": {
+  "AppRef": {
+   "properties": {
+    "app": {
+     "title": "App",
+     "type": "string"
+    },
+    "product": {
+     "title": "Product",
+     "type": "string"
+    },
+    "vendor_version": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Vendor Version"
+    },
+    "surface": {
+     "default": "desktop-ocr",
+     "title": "Surface",
+     "type": "string"
+    }
+   },
+   "required": [
+    "app",
+    "product"
+   ],
+   "title": "AppRef",
+   "type": "object"
+  },
+  "Checkpoint": {
+   "description": "Success condition checked on the final screen. All parts must hold.",
+   "properties": {
+    "window": {
+     "description": "window title pattern, * = any text",
+     "title": "Window",
+     "type": "string"
+    },
+    "text": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "text that must be visible ({param}, * allowed)",
+     "title": "Text"
+    },
+    "table_contains": {
+     "anyOf": [
+      {
+       "additionalProperties": {
+        "type": "string"
+       },
+       "type": "object"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Table Contains"
+    }
+   },
+   "required": [
+    "window"
+   ],
+   "title": "Checkpoint",
+   "type": "object"
+  },
+  "Extract": {
+   "description": "Where an output is read on the final screen (static UI text only, never customer data).",
+   "properties": {
+    "label": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "value right of this label, e.g. 'Balance'",
+     "title": "Label"
+    },
+    "pattern": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "text line, {value} = the output, * = anything",
+     "title": "Pattern"
+    },
+    "column": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "all values of this table column",
+     "title": "Column"
+    },
+    "rows_below": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "table rows under this header",
+     "title": "Rows Below"
+    }
+   },
+   "title": "Extract",
+   "type": "object"
+  },
+  "InputSpec": {
+   "properties": {
+    "type": {
+     "description": "name | email | phone | enum | money | account_ref | string",
+     "title": "Type",
+     "type": "string"
+    },
+    "description": {
+     "default": "",
+     "title": "Description",
+     "type": "string"
+    },
+    "enum": {
+     "anyOf": [
+      {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Enum"
+    },
+    "pii": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "personal-data class; masked before any LLM call and in logs",
+     "title": "Pii"
+    },
+    "required": {
+     "default": true,
+     "title": "Required",
+     "type": "boolean"
+    },
+    "record_key": {
+     "default": false,
+     "description": "identifies the record: every result must show this value (else result_mismatch)",
+     "title": "Record Key",
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "type"
+   ],
+   "title": "InputSpec",
+   "type": "object"
+  },
+  "OutputSpec": {
+   "properties": {
+    "type": {
+     "description": "string | money | number | account_no | list | table",
+     "title": "Type",
+     "type": "string"
+    },
+    "description": {
+     "default": "",
+     "title": "Description",
+     "type": "string"
+    },
+    "pattern": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "regex the value must match",
+     "title": "Pattern"
+    },
+    "pii": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Pii"
+    },
+    "extract": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Extract"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    }
+   },
+   "required": [
+    "type"
+   ],
+   "title": "OutputSpec",
+   "type": "object"
+  },
+  "Provenance": {
+   "properties": {
+    "discovered_in": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "run folder of the discovery run",
+     "title": "Discovered In"
+    },
+    "model": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Model"
+    },
+    "recorded_at": {
+     "title": "Recorded At",
+     "type": "string"
+    },
+    "example_goal": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "the goal it was learned from, personal data masked",
+     "title": "Example Goal"
+    },
+    "human_steps": {
+     "default": 0,
+     "title": "Human Steps",
+     "type": "integer"
+    },
+    "migrated_from": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Migrated From"
+    },
+    "approved_by": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Approved By"
+    },
+    "approved_at": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Approved At"
+    }
+   },
+   "required": [
+    "recorded_at"
+   ],
+   "title": "Provenance",
+   "type": "object"
+  },
+  "Step": {
+   "properties": {
+    "id": {
+     "title": "Id",
+     "type": "string"
+    },
+    "kind": {
+     "default": "action",
+     "enum": [
+      "action",
+      "human"
+     ],
+     "title": "Kind",
+     "type": "string"
+    },
+    "window": {
+     "description": "window the step happens in, record numbers masked",
+     "title": "Window",
+     "type": "string"
+    },
+    "action": {
+     "anyOf": [
+      {
+       "enum": [
+        "click",
+        "double_click",
+        "type",
+        "select",
+        "key",
+        "wait"
+       ],
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Action"
+    },
+    "target": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Target"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "value": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "text to type / option to select; {param} placeholders",
+     "title": "Value"
+    },
+    "keys": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Keys"
+    },
+    "seconds": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Seconds"
+    },
+    "on_many": {
+     "anyOf": [
+      {
+       "enum": [
+        "ask_user",
+        "fail"
+       ],
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "several table rows fit",
+     "title": "On Many"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "human step: why a person does this part",
+     "title": "Reason"
+    },
+    "guide": {
+     "description": "human step: what the person did",
+     "items": {
+      "$ref": "#/$defs/Step"
+     },
+     "title": "Guide",
+     "type": "array"
+    },
+    "fingerprint": {
+     "description": "static controls of the window",
+     "title": "Fingerprint",
+     "type": "object"
+    },
+    "end_fingerprint": {
+     "anyOf": [
+      {
+       "type": "object"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "End Fingerprint"
+    }
+   },
+   "required": [
+    "id",
+    "window"
+   ],
+   "title": "Step",
+   "type": "object"
+  },
+  "Target": {
+   "description": "How the control a step acts on is found on the screen.",
+   "properties": {
+    "role": {
+     "description": "button | input | dropdown | table_row | column_header | menu_item | scrollbar",
+     "title": "Role",
+     "type": "string"
+    },
+    "label": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "visible label / caption (OCR-tolerant match)",
+     "title": "Label"
+    },
+    "column": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "table_row: column to look in",
+     "title": "Column"
+    },
+    "equals": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "table_row: cell equals this ({param} allowed)",
+     "title": "Equals"
+    },
+    "contains": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "table_row: cell contains this ({param} allowed)",
+     "title": "Contains"
+    },
+    "row": {
+     "anyOf": [
+      {
+       "type": "integer"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "table_row: position, 1 = first (only when no parameter fits)",
+     "title": "Row"
+    }
+   },
+   "required": [
+    "role"
+   ],
+   "title": "Target",
+   "type": "object"
+  }
+ },
+ "properties": {
+  "schema": {
+   "const": "capability/1",
+   "default": "capability/1",
+   "enum": [
+    "capability/1"
+   ],
+   "title": "Schema",
+   "type": "string"
+  },
+  "id": {
+   "description": "<app>.<name>, e.g. bankapp.account_details",
+   "title": "Id",
+   "type": "string"
+  },
+  "version": {
+   "default": 1,
+   "title": "Version",
+   "type": "integer"
+  },
+  "status": {
+   "default": "draft",
+   "description": "unattended replay needs 'approved'",
+   "enum": [
+    "draft",
+    "approved"
+   ],
+   "title": "Status",
+   "type": "string"
+  },
+  "app": {
+   "$ref": "#/$defs/AppRef"
+  },
+  "description": {
+   "title": "Description",
+   "type": "string"
+  },
+  "mode": {
+   "description": "write = changes data; confirmed before every run",
+   "enum": [
+    "read",
+    "write"
+   ],
+   "title": "Mode",
+   "type": "string"
+  },
+  "inputs": {
+   "additionalProperties": {
+    "$ref": "#/$defs/InputSpec"
+   },
+   "title": "Inputs",
+   "type": "object"
+  },
+  "outputs": {
+   "additionalProperties": {
+    "$ref": "#/$defs/OutputSpec"
+   },
+   "title": "Outputs",
+   "type": "object"
+  },
+  "steps": {
+   "items": {
+    "$ref": "#/$defs/Step"
+   },
+   "title": "Steps",
+   "type": "array"
+  },
+  "checkpoint": {
+   "$ref": "#/$defs/Checkpoint"
+  },
+  "final_fingerprint": {
+   "title": "Final Fingerprint",
+   "type": "object"
+  },
+  "outcomes": {
+   "additionalProperties": {
+    "type": "string"
+   },
+   "description": "condition -> return | wait | retry | escalate | fail",
+   "title": "Outcomes",
+   "type": "object"
+  },
+  "provenance": {
+   "$ref": "#/$defs/Provenance"
+  }
+ },
+ "required": [
+  "id",
+  "app",
+  "description",
+  "mode",
+  "inputs",
+  "outputs",
+  "steps",
+  "checkpoint",
+  "provenance"
+ ],
+ "title": "Capability",
+ "type": "object"
+}

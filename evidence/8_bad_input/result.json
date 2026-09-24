@@ -1,0 +1,22 @@
+{
+ "run_id": "20260924_171547_account_details_replay",
+ "capability": "bankapp.account_details",
+ "version": 1,
+ "mode": "replay",
+ "status": "failed",
+ "outcome": null,
+ "outputs": {},
+ "answer": null,
+ "failure": {
+  "code": "invalid_input",
+  "message": "account: Give an account number (like <ACCT_1>) or a customer name.",
+  "step": null,
+  "expected": null,
+  "observed": null,
+  "screenshot": null
+ },
+ "recoveries": [],
+ "interventions": [],
+ "llm_calls": 0,
+ "duration_s": 0.0
+}

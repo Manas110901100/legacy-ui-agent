@@ -1,0 +1,761 @@
+{
+ "schema": "capability/1",
+ "id": "bankapp.account_details",
+ "version": 2,
+ "status": "approved",
+ "app": {
+  "app": "bankapp",
+  "product": "BankAPP",
+  "vendor_version": "1.0",
+  "surface": "desktop-ocr"
+ },
+ "description": "Open one account's details (balance, status, contact, transactions) and read them.",
+ "mode": "read",
+ "inputs": {
+  "account": {
+   "type": "account_ref",
+   "description": "Account number (ACC123456) or customer name; several matches -> the user picks",
+   "pii": "ACCOUNT",
+   "required": true,
+   "record_key": true
+  }
+ },
+ "outputs": {
+  "account_no": {
+   "type": "account_no",
+   "description": "Account number",
+   "pattern": "ACC\\d{6}",
+   "extract": {
+    "label": "Account No"
+   }
+  },
+  "customer": {
+   "type": "string",
+   "description": "Customer name",
+   "pii": "NAME",
+   "extract": {
+    "label": "Customer"
+   }
+  },
+  "account_type": {
+   "type": "string",
+   "description": "Savings or Checking",
+   "extract": {
+    "label": "Type"
+   }
+  },
+  "status": {
+   "type": "string",
+   "description": "ACTIVE or CLOSED",
+   "extract": {
+    "label": "Status"
+   }
+  },
+  "balance": {
+   "type": "money",
+   "description": "Current balance",
+   "extract": {
+    "label": "Balance"
+   }
+  },
+  "transactions": {
+   "type": "table",
+   "description": "Rows of the transaction list (date, type, amount, balance after, ...)",
+   "extract": {
+    "rows_below": "Date Time"
+   }
+  }
+ },
+ "steps": [
+  {
+   "id": "s1",
+   "kind": "action",
+   "window": "BankAPP - Core Banking System",
+   "action": "type",
+   "target": {
+    "role": "input",
+    "label": "Account No / Name"
+   },
+   "value": "{account}",
+   "guide": [],
+   "fingerprint": {
+    "window_title": "BankAPP - Core Banking System",
+    "size": [
+     1366,
+     677
+    ],
+    "elements": [
+     {
+      "kind": "button",
+      "key": "New",
+      "box": [
+       6,
+       5,
+       86,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Edit",
+      "box": [
+       89,
+       5,
+       169,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Details",
+      "box": [
+       172,
+       5,
+       252,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Deposit",
+      "box": [
+       265,
+       5,
+       345,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Withdraw",
+      "box": [
+       348,
+       5,
+       428,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Transfer",
+      "box": [
+       431,
+       5,
+       511,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Close Acct",
+      "box": [
+       524,
+       5,
+       604,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "• Show Aii",
+      "box": [
+       1288,
+       5,
+       1361,
+       29
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Account No / Name",
+      "box": [
+       1060,
+       7,
+       1218,
+       25
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Account No",
+      "box": [
+       8,
+       46,
+       79,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Customer Name",
+      "box": [
+       170,
+       46,
+       266,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Type",
+      "box": [
+       412,
+       46,
+       441,
+       57
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Balance",
+      "box": [
+       560,
+       45,
+       606,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Status",
+      "box": [
+       734,
+       46,
+       774,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Email",
+      "box": [
+       872,
+       45,
+       902,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Phone",
+      "box": [
+       1174,
+       45,
+       1212,
+       55
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Account No / Name:",
+      "box": [
+       941,
+       10,
+       1054,
+       24
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s2",
+   "kind": "action",
+   "window": "BankAPP - Core Banking System",
+   "action": "click",
+   "target": {
+    "role": "button",
+    "label": "Find"
+   },
+   "guide": [],
+   "fingerprint": {
+    "window_title": "BankAPP - Core Banking System",
+    "size": [
+     1366,
+     677
+    ],
+    "elements": [
+     {
+      "kind": "button",
+      "key": "New",
+      "box": [
+       6,
+       5,
+       86,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Edit",
+      "box": [
+       89,
+       5,
+       169,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Details",
+      "box": [
+       172,
+       5,
+       252,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Deposit",
+      "box": [
+       265,
+       5,
+       345,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Withdraw",
+      "box": [
+       348,
+       5,
+       428,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Transfer",
+      "box": [
+       431,
+       5,
+       511,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Close Acct",
+      "box": [
+       524,
+       5,
+       604,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Find",
+      "box": [
+       1226,
+       5,
+       1285,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Show All",
+      "box": [
+       1288,
+       5,
+       1361,
+       29
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Account No / Name",
+      "box": [
+       1060,
+       7,
+       1218,
+       25
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Account No",
+      "box": [
+       8,
+       46,
+       79,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Customer Name",
+      "box": [
+       170,
+       46,
+       266,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Type",
+      "box": [
+       412,
+       46,
+       441,
+       57
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Balance",
+      "box": [
+       560,
+       45,
+       606,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Status",
+      "box": [
+       734,
+       46,
+       774,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Email",
+      "box": [
+       872,
+       45,
+       902,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Phone",
+      "box": [
+       1174,
+       45,
+       1212,
+       55
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Account No / Name:",
+      "box": [
+       941,
+       10,
+       1054,
+       24
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s3",
+   "kind": "action",
+   "window": "BankAPP - Core Banking System",
+   "action": "double_click",
+   "target": {
+    "role": "table_row",
+    "column": "Account No",
+    "equals": "{account}"
+   },
+   "on_many": "ask_user",
+   "guide": [],
+   "fingerprint": {
+    "window_title": "BankAPP - Core Banking System",
+    "size": [
+     1366,
+     677
+    ],
+    "elements": [
+     {
+      "kind": "button",
+      "key": "New",
+      "box": [
+       6,
+       5,
+       86,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Edit",
+      "box": [
+       89,
+       5,
+       169,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Details",
+      "box": [
+       172,
+       5,
+       252,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Deposit",
+      "box": [
+       265,
+       5,
+       345,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Withdraw",
+      "box": [
+       348,
+       5,
+       428,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Transfer",
+      "box": [
+       431,
+       5,
+       511,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Close Acct",
+      "box": [
+       524,
+       5,
+       604,
+       29
+      ]
+     },
+     {
+      "kind": "button",
+      "key": "Show All",
+      "box": [
+       1288,
+       5,
+       1361,
+       29
+      ]
+     },
+     {
+      "kind": "input",
+      "key": "Account No / Name",
+      "box": [
+       1060,
+       7,
+       1218,
+       25
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Account No",
+      "box": [
+       8,
+       46,
+       79,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Customer Name",
+      "box": [
+       170,
+       46,
+       266,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Type",
+      "box": [
+       412,
+       46,
+       441,
+       57
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Balance",
+      "box": [
+       560,
+       45,
+       606,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Status",
+      "box": [
+       734,
+       46,
+       774,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Email",
+      "box": [
+       872,
+       45,
+       902,
+       55
+      ]
+     },
+     {
+      "kind": "column_header",
+      "key": "Phone",
+      "box": [
+       1174,
+       45,
+       1212,
+       55
+      ]
+     },
+     {
+      "kind": "label",
+      "key": "Account No / Name:",
+      "box": [
+       941,
+       10,
+       1054,
+       24
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "checkpoint": {
+  "window": "Account Details - *"
+ },
+ "final_fingerprint": {
+  "window_title": "Account Details - *",
+  "size": [
+   760,
+   420
+  ],
+  "elements": [
+   {
+    "kind": "button",
+    "key": "Counter",
+    "box": [
+     455,
+     146,
+     542,
+     159
+    ]
+   },
+   {
+    "kind": "button",
+    "key": "Close",
+    "box": [
+     672,
+     388,
+     752,
+     412
+    ]
+   },
+   {
+    "kind": "column_header",
+    "key": "Date Time",
+    "box": [
+     18,
+     148,
+     82,
+     158
+    ]
+   },
+   {
+    "kind": "column_header",
+    "key": "Amount",
+    "box": [
+     261,
+     148,
+     312,
+     158
+    ]
+   },
+   {
+    "kind": "column_header",
+    "key": "Balance After",
+    "box": [
+     354,
+     148,
+     436,
+     158
+    ]
+   },
+   {
+    "kind": "column_header",
+    "key": "Descri",
+    "box": [
+     548,
+     148,
+     583,
+     158
+    ]
+   },
+   {
+    "kind": "column_header",
+    "key": "tion",
+    "box": [
+     592,
+     148,
+     616,
+     158
+    ]
+   }
+  ]
+ },
+ "outcomes": {
+  "record_not_found": "return",
+  "validation_error": "return",
+  "permission_denied": "return",
+  "session_expired": "escalate",
+  "transient": "retry",
+  "app_error": "fail",
+  "confirmation": "escalate",
+  "busy": "wait",
+  "ambiguous_match": "return",
+  "unknown_window": "fail",
+  "target_missing": "fail",
+  "checkpoint_failed": "fail",
+  "output_missing": "fail",
+  "result_mismatch": "fail"
+ },
+ "provenance": {
+  "discovered_in": "runs\\20260924_171342_account_details",
+  "model": "gpt-4o",
+  "recorded_at": "2026-09-24T17:14:09",
+  "example_goal": "what is the balance of <ACCT_1>",
+  "human_steps": 0,
+  "approved_by": "manas",
+  "approved_at": "2026-09-24T17:14:28"
+ }
+}

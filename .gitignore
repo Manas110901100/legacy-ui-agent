@@ -1,0 +1,22 @@
+# secrets and local tool settings
+.env
+.claude/settings.local.json
+.vscode/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# runtime data: masked but not curated (curated copies live in evidence/)
+runs/
+captures/
+maps/archive/
+capabilities/archive/
+capabilities/*.stats.json
+
+# BankAPP runtime data
+BankAPP/bankapp.db
+BankAPP/bankapp.log

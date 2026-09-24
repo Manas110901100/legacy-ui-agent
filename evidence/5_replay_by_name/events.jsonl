@@ -1,0 +1,13 @@
+{"t": "2026-09-24T17:15:03.489", "event": "observe", "window": "Account Details - *", "node": "n3", "step": null}
+{"t": "2026-09-24T17:15:04.394", "event": "action", "step": null, "action": "key", "target": null, "value": null, "window": "Account Details - *"}
+{"t": "2026-09-24T17:15:05.473", "event": "observe", "window": "BankAPP - Core Banking System", "node": "n1", "step": null}
+{"t": "2026-09-24T17:15:06.915", "event": "observe", "window": "BankAPP - Core Banking System", "node": "n1", "step": null}
+{"t": "2026-09-24T17:15:07.834", "event": "action", "step": null, "action": "click", "target": {"kind": "button", "key": "Show All"}, "value": null, "window": "BankAPP - Core Banking System"}
+{"t": "2026-09-24T17:15:09.525", "event": "observe", "window": "BankAPP - Core Banking System", "node": "n1", "step": "s1"}
+{"t": "2026-09-24T17:15:11.078", "event": "action", "step": "s1", "action": "type", "target": {"kind": "input", "key": "Account No / Name"}, "value": "{account}", "window": "BankAPP - Core Banking System"}
+{"t": "2026-09-24T17:15:12.803", "event": "observe", "window": "BankAPP - Core Banking System", "node": "n1", "step": "s2"}
+{"t": "2026-09-24T17:15:13.730", "event": "action", "step": "s2", "action": "click", "target": {"kind": "button", "key": "Find"}, "value": null, "window": "BankAPP - Core Banking System"}
+{"t": "2026-09-24T17:15:14.897", "event": "observe", "window": "BankAPP - Core Banking System", "node": "n1", "step": "s3"}
+{"t": "2026-09-24T17:15:15.815", "event": "action", "step": "s3", "action": "double_click", "target": {"kind": "table_row", "match": {"Account No": "{account}"}}, "value": null, "window": "BankAPP - Core Banking System"}
+{"t": "2026-09-24T17:15:17.223", "event": "observe", "window": "Account Details - *", "node": "n3", "step": "checkpoint"}
+{"t": "2026-09-24T17:15:17.282", "event": "result", "status": "success", "outcome": null, "failure": null}

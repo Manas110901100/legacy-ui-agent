@@ -1,0 +1,2 @@
+[17:15:47] invoke bankapp.account_details v1 [approved] with {"account": "!!"}
+[17:15:47] RESULT failed - invalid_input: account: Give an account number (like <ACCT_1>) or a customer name.

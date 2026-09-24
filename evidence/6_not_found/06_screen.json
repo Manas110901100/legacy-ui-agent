@@ -1,0 +1,21 @@
+{
+ "screen": "Record Not Found",
+ "menu": [],
+ "buttons": [],
+ "inputs": [
+  {
+   "id": "input_1",
+   "kind": "input",
+   "label": "",
+   "role": "field",
+   "value": "<TEXT_8>"
+  }
+ ],
+ "other_text": [
+  {
+   "text": "Account <ACCT_1> was not found.",
+   "content": "dynamic",
+   "kind": "text"
+  }
+ ]
+}
